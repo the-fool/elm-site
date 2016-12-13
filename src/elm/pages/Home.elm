@@ -14,7 +14,6 @@ main =
     Skeleton.skeleton "home"
         [ splash
         , suite
-        , people
         ]
 
 
@@ -43,11 +42,3 @@ splash =
 suite =
     section [ class "suite-section" ]
         [ h1 [] [ text "Our stuff" ] ]
-
-
-people =
-    section [ class "people-section" ]
-        (List.map
-            (\name -> h1 [] [ text name ])
-            [ "PEOPLE", "Brady", "Jay", "Thomas" ]
-        )
