@@ -48,5 +48,5 @@ tab currentName name =
 
 footer =
     div [ class "footer" ]
-        [ text "All code for this site is open source and written in Elm. — © 2012-2016 Iconcore"
+        [ text "I yam foot. — © 2012-2016 Iconcore"
         ]

@@ -14,13 +14,20 @@ main =
     Skeleton.skeleton "home"
         [ splash
         , suite
+        , people
         ]
 
 
+px : Int -> String
+px n =
+    toString n ++ "px"
+
+
+size : Int -> Int -> Attribute msg
 size height padding =
     style
-        [ "font-size" => (toString height ++ "px")
-        , "padding" => (toString padding ++ "px 0")
+        [ "font-size" => (px height)
+        , "padding" => (px padding ++ " 0")
         ]
 
 
@@ -36,3 +43,11 @@ splash =
 suite =
     section [ class "suite-section" ]
         [ h1 [] [ text "Our stuff" ] ]
+
+
+people =
+    section [ class "people-section" ]
+        (List.map
+            (\name -> h1 [] [ text name ])
+            [ "PEOPLE", "Brady", "Jay", "Thomas" ]
+        )
