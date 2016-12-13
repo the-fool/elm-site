@@ -10,18 +10,21 @@ console.log('WEBPACK GO!');
 
 const pages = ['home', 'about'];
 
-// Gather up the entry points
-const entry = pages.reduce((dict, p) => {
+// Each page has some common core stuff
+const allChunks = ['core', ...pages];
+
+// Gather up the entry points, including core
+const entry = allChunks.reduce((dict, p) => {
     dict[p] = `./src/static/${p}.js`;
     return dict;
 }, {});
 
-// And make an html page for each
+// And make an html page for each PAGE (excluding the core module)
 const HtmlPlugins = pages.map(p =>
     new HtmlWebpackPlugin({
         template: './src/static/index.html',
         inject: 'body',
-        chunks: [p],
+        chunks: ['core', p],
         filename: `${p}.html`
     }));
 
@@ -41,7 +44,7 @@ const commonConfig = {
 
     resolve: {
         modulesDirectories: ['node_modules', 'bower_components'],
-        extensions: ['', '.js', '.elm']
+        extensions: ['', '.js', '.elm', '.styl']
     },
 
     module: {
@@ -84,6 +87,13 @@ if (TARGET_ENV === 'development') {
                     'style-loader',
                     'css-loader',
                 ]
+            }, {
+                test: /\.styl$/,
+                loaders: [
+                    'style-loader',
+                    'css-loader',
+                    'stylus-loader'
+                ]
             }]
         }
 
@@ -102,11 +112,10 @@ if (TARGET_ENV === 'production') {
                 exclude: [/elm-stuff/, /node_modules/],
                 loader: 'elm-webpack'
             }, {
-                test: /\.(css|scss)$/,
+                test: /\.(css)$/,
                 loader: ExtractTextPlugin.extract('style-loader', [
                     'css-loader',
                     'postcss-loader',
-                    'sass-loader'
                 ])
             }]
         },

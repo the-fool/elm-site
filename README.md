@@ -6,3 +6,10 @@ npm i
 bower install
 npm start
 ```
+
+or, if you want things contained in Docker:
+
+```bash
+./do build
+./do dev
+```
