@@ -1,0 +1,23 @@
+{
+  "name": "iconcore",
+  "repository": "",
+  "authors": [
+    "the-fool <sketchbang@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "paper-button": "^1.0.14",
+    "webcomponentsjs": "^0.7.23"
+  }
+}
