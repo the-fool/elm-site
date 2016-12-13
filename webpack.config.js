@@ -68,7 +68,9 @@ if (TARGET_ENV === 'development') {
 
         devServer: {
             inline: true,
-            progress: true
+            progress: true,
+            host: '0.0.0.0',
+            port: '8080'
         },
 
         module: {
@@ -77,12 +79,10 @@ if (TARGET_ENV === 'development') {
                 exclude: [/elm-stuff/, /node_modules/],
                 loader: 'elm-hot!elm-webpack?verbose=true&warn=true&debug=true'
             }, {
-                test: /\.(css|scss)$/,
+                test: /\.css$/,
                 loaders: [
                     'style-loader',
                     'css-loader',
-                    'postcss-loader',
-                    'sass-loader'
                 ]
             }]
         }

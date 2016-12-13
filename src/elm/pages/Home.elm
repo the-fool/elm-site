@@ -27,7 +27,7 @@ size height padding =
 splash =
     div [ class "splash" ]
         [ div [ size 120 16 ] [ text "IconCore" ]
-        , div [ size 26 8 ] [ text "Smarts.  Health. Computers." ]
+        , div [ size 26 8 ] [ text "Smarts.  Healths. Computers." ]
         , div [ size 16 8 ] [ text "Buy our software." ]
         , br [] []
         ]
